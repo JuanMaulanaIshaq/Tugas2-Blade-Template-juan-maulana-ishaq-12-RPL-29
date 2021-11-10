@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\produkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,14 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('contant.dashboard');
 });
+
+Route::get('/produk', function () {
+    return view('tampilan.produk');
+});
+
+Route::get('/produk', [produkController::class, 'index']) ->name('produk');
+
+Route::get('/produk/delete/{id}',[produkController::class,'destroy']) ->name ('produk');
+
+Route::get('/produk/tambah', [produkController::class,'create']) ->name ('produk');
+
